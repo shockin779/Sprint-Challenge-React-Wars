@@ -16,7 +16,6 @@ const App = () => {
     try {
       let response = await axios.get('https://swapi.co/api/people/');
       let characters = response.data.results;
-      console.log(typeof(characters))
       setCharacters(characters);
     } catch(err) {
       console.log(`There was an error retrieving your characters: ${err}`)
@@ -31,7 +30,7 @@ const App = () => {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <div className='characterCards'>
+        <div className='characterCardsContainer'>
           {
             characters.map((character, index) => (
               <CharacterCard key={index} character={character} />
